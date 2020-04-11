@@ -1,24 +1,23 @@
 {
-  "name": "gatsby-datocms-demo",
-  "description": "Gatsby DatoCMS creative portfolio demo",
+  "name": "workshops.mxstbr.com",
+  "description": "Workshops by Max Stoiber",
   "version": "1.0.0",
-  "author": "Stefano Verna <s.verna@datocms.com>",
+  "author": "Max Stoiber",
   "dependencies": {
     "dotenv": "^8.2.0",
     "gatsby": "^2.20.14",
     "gatsby-image": "^2.3.2",
     "gatsby-plugin-react-helmet": "^3.2.1",
-    "gatsby-plugin-sass": "^2.2.1",
+    "gatsby-plugin-theme-ui": "^0.3.0",
     "gatsby-source-datocms": "^2.1.29",
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-transformer-remark": "^2.7.1",
-    "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.0",
-    "react-masonry-component": "^6.2.1",
-    "react-slick": "^0.25.2",
-    "slick-carousel": "^1.8.1"
+    "strict-ui": "^0.0.19",
+    "theme-ui": "^0.3.1",
+    "theme-ui-preset-nice-boys": "^0.1.2"
   },
   "keywords": [
     "gatsby"
@@ -28,7 +27,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\""
+    "format": "prettier --write \"src/**/*.js\""
   },
   "devDependencies": {
     "prettier": "^2.0.4"

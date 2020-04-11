@@ -1,51 +1,40 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import Masonry from 'react-masonry-component'
-import Img from 'gatsby-image'
-import Layout from "../components/layout"
+/** @jsx jsx */
+import { jsx } from "strict-ui";
+import { Link, graphql } from "gatsby";
+import Img from "gatsby-image";
+import Layout from "../components/layout";
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <Masonry className="showcase">
-      {data.allDatoCmsWork.edges.map(({ node: work }) => (
-        <div key={work.id} className="showcase__item">
-          <figure className="card">
-            <Link to={`/works/${work.slug}`} className="card__image">
-              <Img fluid={work.coverImage.fluid} />
-            </Link>
-            <figcaption className="card__caption">
-              <h6 className="card__title">
-                <Link to={`/works/${work.slug}`}>{work.title}</Link>
-              </h6>
-              <div className="card__description">
-                <p>{work.excerpt}</p>
-              </div>
-            </figcaption>
-          </figure>
-        </div>
+    <h1>Home</h1>
+    <ul>
+      {data.allDatoCmsWorkshop.edges.map(({ node: workshop }) => (
+        <Link key={workshop.id} to={`/${workshop.slug}`}>
+          <li>{workshop.title}</li>
+        </Link>
       ))}
-    </Masonry>
+    </ul>
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
 
 export const query = graphql`
   query IndexQuery {
-    allDatoCmsWork(sort: { fields: [position], order: ASC }) {
+    allDatoCmsWorkshop {
       edges {
         node {
           id
           title
+          level
           slug
-          excerpt
-          coverImage {
-            fluid(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
-              ...GatsbyDatoCmsSizes
+          descriptionNode {
+            childMarkdownRemark {
+              html
             }
           }
         }
       }
     }
   }
-`
+`;
